@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin</title>
+</head>
+<body>
+  <app-navbar></app-navbar>
+
+  <a  class="nav-link" class="btn btn-outline-primary" style=" margin-left: 66em;" routerLink="form" >Add product <span class="sr-only">(current)</span></a>
+
+
+  <div class="p-10 bg-surface" style="margin-left: 10em;">
+    <div class="container" id="main-container">
+      <div class="card">
+        <div class="table-responsive" >
+          <table class="table table-hover table-nowrap" >
+            <thead class="thead-light" >
+              <tr >
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">description</th>
+                <th scope="col">prix</th>
+                <th scope="col">prix_achat</th>
+                <th scope="col">quantite</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+              <tr *ngFor="let product of products" >
+
+                <td data-label="id">
+                  <a class="text-heading font-semibold" href="#">
+                    {{product.idProduit}}
+                  </a>
+                </td>
+
+                <td data-label="Name">
+
+                  <a class="text-heading font-semibold" href="#">
+                    {{product.produitName}}
+                  </a>
+                </td>
+                <td data-label="description">
+                  <span>{{product.description}}</span>
+                </td>
+                <td data-label="prix">
+                  <a class="text-current" href="">{{product.prix}}</a>
+                </td>
+                <td data-label="prix">
+                  <a class="text-current" href="">{{product.prix_achat}}</a>
+                </td>
+                <td data-label="quantite">
+                  <a class="text-current">{{product.quantite}}</a>
+                </td>
+                <td style="width: 100px">
+                  <a  class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                    <span class="fa fa-pencil"></span>
+                  </a>
+                  <a class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top" onclick="return confirm('Are you sure?')" (click)="DeleteProduct(product.idProduit)" >
+                    <span class="fa fa-trash"></span>
+                  </a>
+                </td>
+
+              </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
